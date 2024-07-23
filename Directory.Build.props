@@ -1,7 +1,8 @@
 <Project>
 
-  <!-- $(PeachpieVersion) property from the current Peachpie.NET.Sdk -->
+  <!-- version properties from the current SDK -->
   <Import Project="Version.props" Sdk="Peachpie.NET.Sdk" Condition=" '$(PeachpieVersion)'=='' " />
+  <Import Project="Version.props" Sdk="PeachPied.WordPress.Build.Plugin" Condition=" '$(WpDotNetVersion)'=='' " />
 
   <PropertyGroup>
 

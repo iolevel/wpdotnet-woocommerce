@@ -1,0 +1,10 @@
+{
+    "php.problems.exclude": {
+        "/bin": true,
+        "/obj": true,
+        "/app": true,
+    },
+    "php.problems.excludeGitIgnore": true,
+    "php.stubs": ["*", "zip", "zlib"],
+    "dotnet.defaultSolution": "wpdotnet-woocommerce.sln"
+}
