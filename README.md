@@ -10,6 +10,12 @@ Once there is WordPress as a .NET assembly, with all the functions and classes c
 
 See [PeachPie](https://www.peachpie.io/) for more details, and consider supporting us on [Patreon](https://www.patreon.com/pchpcompiler) 😊
 
+## Sample App
+
+See the `app` folder with minimal ASP.NET Core application. It references WpDotNet package and WooCommerce project.
+
+The sample app requires you to start MySql by yourself, port 3306, having database `wordpress`.
+
 ## How to use WooCommerce on .NET?
 
 > TBD
@@ -27,6 +33,10 @@ See [PeachPie](https://www.peachpie.io/) for more details, and consider supporti
 - `global.json`
 
     Versions of [PeachPie](https://peachpie.io) and [WpDotNet](https://github.com/iolevel/wpdotnet-sdk) used for compilation. Versions need to correspond to each other.
+
+- `app`
+
+    Sample ASP.NET Core application. Run `dotnet run` within the directory to launch WordPress with WooCommerce. Open the app on http://localhost:5004 .
 
 ## Disclaimer
 
