@@ -1,0 +1,47 @@
+<Project>
+
+  <!-- $(PeachpieVersion) property from the current Peachpie.NET.Sdk -->
+  <Import Project="Version.props" Sdk="Peachpie.NET.Sdk" Condition=" '$(PeachpieVersion)'=='' " />
+
+  <PropertyGroup>
+
+    <LangVersion>latest</LangVersion>
+
+    <!-- common version -->
+    <VersionFileContent>$([System.IO.File]::ReadAllText($(MSBuildThisFileDirectory)woocommerce/woocommerce.php) )</VersionFileContent>
+    <VersionPrefix Condition=" '$(VersionPrefix)'=='' ">$([System.Text.RegularExpressions.Regex]::Match($(VersionFileContent), "^\*\s+Version\:\s*([0-9\.]+);").Groups.get_Item(1) )</VersionPrefix>
+    <VersionSuffix Condition=" '$(VersionSuffix)'=='' ">rc-017</VersionSuffix>
+    <!--PeachpieVersion> specified in global.json </PeachpieVersion-->
+
+    <!-- metadata generation -->
+    <GenerateAssemblyVersionAttribute>true</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>true</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateNeutralResourcesLanguageAttribute>true</GenerateNeutralResourcesLanguageAttribute>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- signing -->
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+
+  </PropertyGroup>
+
+  <!-- package -->
+  <PropertyGroup>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/iolevel/wpdotnet-woocommerce</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/iolevel/wpdotnet-woocommerce</PackageProjectUrl>
+    <PackageOutputPath Condition=" '$(PackageOutputPath)'=='' ">$(MSBuildThisFileDirectory)artifacts</PackageOutputPath>
+    <PackageIconPath Condition=" '$(PackageIconPath)'=='' ">$(MSBuildThisFileDirectory)woocommerce/assets/images/woocommerce_logo.png</PackageIconPath>
+    <PackageIcon>assets/$([System.IO.Path]::GetFileName(&quot;$(PackageIconPath)&quot;))</PackageIcon>
+    <PackageReadmePath>$(MSBuildProjectDirectory)/readme.md</PackageReadmePath>
+    <PackageReadme>assets/$([System.IO.Path]::GetFileName(&quot;$(PackageReadmePath)&quot;))</PackageReadme>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <Authors>automattic, iolevel</Authors>
+  </PropertyGroup>
+
+</Project>
