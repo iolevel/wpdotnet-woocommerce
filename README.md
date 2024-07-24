@@ -1,18 +1,18 @@
 # WooCommerce for .NET
 
-This project builds WooCommerce from sources to .NET. It can be used as a dependency by regular ASP.NET Core application and self-hosted.
+This project builds WooCommerce from the sources on top of .NET. It can be used as a dependency by a regular ASP.NET Core application or self-hosted.
 
 ## Background
 
-First, we have created project called [WpDotNet](https://github.com/iolevel/wpdotnet-sdk) - WpDotNet is entire [WordPress](https://wordpress.org/download/) compiled to .NET `.dll` using the [PeachPie](https://peachpie.io) - the PHP to .NET Compiler. In addition it provides a few APIs written purely in C# to add _WordPress_ as a [middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-8.0) to new or existing ASP.NET Core application.
+First, we created a project called [WpDotNet](https://github.com/iolevel/wpdotnet-sdk) - WpDotNet is the entire [WordPress](https://wordpress.org/download/) compiled to a .NET `.dll` using [PeachPie](https://peachpie.io) - the PHP to .NET compiler. In addition, it provides a few APIs written purely in C# to add _WordPress_ as [middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-8.0) to a new or existing ASP.NET Core application.
 
-Once there is WordPress as a .NET assembly, with all the functions and classes compiled in a strongly typed metadata, we wraped it in a NuGet package, and using this as a dependency we can build WordPress plugins separately as .NET assemblies as well.
+With WordPress compiled to a .NET assembly, including all the functions and classes compiled along with strongly typed metadata, we wrapped it in a NuGet package. We can then use this as a dependency to build WordPress plugins separately as .NET assemblies, as well.
 
-See [PeachPie](https://www.peachpie.io/) for more details, and consider supporting us on [Patreon](https://www.patreon.com/pchpcompiler) 😊
+See [PeachPie](https://www.peachpie.io/) for more details, and please consider supporting us on [Patreon](https://www.patreon.com/pchpcompiler) to get access to release builds and nightly builds, a private forum, custom tutorials and blogs and much more 😊
 
 ## Sample App
 
-See the `app` folder with minimal ASP.NET Core application. It references WpDotNet package and WooCommerce project.
+See the `app` folder with a minimal ASP.NET Core application. It references the WpDotNet package and WooCommerce project.
 
 The sample app requires you to start MySql by yourself, port 3306, having database `wordpress`.
 
@@ -28,7 +28,7 @@ The sample app requires you to start MySql by yourself, port 3306, having databa
     
 - `woocommerce/woocommerce.msbuildproj`
 
-    MSBuild project file that utilizes [PeachPie](https://peachpie.io) compiler to compile `.php` source files to .NET `.dll` assembly. The project references the entire WordPress from NuGet package (see [WpDotNet](https://github.com/iolevel/wpdotnet-sdk)).
+    MSBuild project file that utilizes [PeachPie](https://peachpie.io) compiler to compile `.php` source files to a .NET `.dll` assembly. The project references all of WordPress from a NuGet package (see [WpDotNet](https://github.com/iolevel/wpdotnet-sdk)).
 
 - `global.json`
 
